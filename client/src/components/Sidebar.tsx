@@ -31,7 +31,7 @@ const Sidebar:React.FC<SidebarProps> = ({selectedUser,setSelectedUser}) => {
                 <div className="flex justify-between items-center">
                     <div className="flex items-center">
                         <img src="/chat.png" alt="" className="max-w-40 w-10 " />
-                        <span className="m-2 font-semibold text-green-500 text-xl" >Convo</span>
+                        <span className="m-2 font-semibold text-[#133890] text-xl" >Convo</span>
                     </div>
                     
                     <div className="relative py-2 group" >
