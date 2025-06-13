@@ -20,7 +20,7 @@ const ProfilePage = () => {
     return (
         <div className=" min-h-screen flex items-center justify-center">
             {/* User profile form */}
-            <div className=" max-w-5/6 min-w-3/6  max-w-2xl border-2 border-slate-800 flex-col items-center justify-between max-sm:flex-col-reverse rounded-lg">
+            <div className="bg-gradient-to-tl from-[#effaf3] via-white to-[#effaf3] max-w-5/6 min-w-3/6  max-w-2xl border-2 border-slate-800 flex-col items-center justify-between max-sm:flex-col-reverse rounded-lg">
                 <div className="flex justify-start items-center">
                         <img src="/chat.png" alt="" className="max-w-6 " />
                         <span className="m-2 font-semibold text-[#133890] text-xl" >Convo</span>

@@ -29,7 +29,7 @@ const LoginPage = () => {
             </div>
             {/* Login/SignUp form */}
 
-            <form onSubmit={onSubmitHandler} className="bg-gradient-to-bl from-blue-100 via-white to-blue-100 w-1/2 sm:w-2/5 p-6 flex flex-col gap-6 rounded-lg shadow-lg">
+            <form onSubmit={onSubmitHandler} className="bg-gradient-to-tl from-[#effaf3] via-white to-[#effaf3] w-1/2 sm:w-2/5 p-6 flex flex-col gap-6 rounded-lg shadow-lg">
                 <h2 className="font-medium text-2xl flex justify-between items-center">
                     {currState}
                     {isDataSubmitted && <IoIosArrowBack onClick={() => setIsDataSubmitted(false)} className="w-5 cursor-pointer" />}
