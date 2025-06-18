@@ -1,5 +1,7 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { IoIosArrowBack } from "react-icons/io";
+import { AuthContext } from "../context/AuthContext";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
 
@@ -10,6 +12,9 @@ const LoginPage = () => {
     const [bio,setBio] = useState("");
     const [isDataSubmitted,setIsDataSubmitted] = useState(false);
 
+
+    const login = useContext(AuthContext)?.login
+
     const onSubmitHandler = (event:React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -17,6 +22,18 @@ const LoginPage = () => {
             setIsDataSubmitted(true);
             return;
         }
+
+        if (!login) {
+            toast.error("Login function is not available. Please try again later.");
+            return;
+        }
+
+        const payload = { email, password };
+        if (currState === "Sign Up") {
+            Object.assign(payload, { fullName, bio });
+        }
+
+        login(currState === "Sign Up" ? "signup" : "login", payload);
     }
 
     return (
@@ -76,6 +93,7 @@ const LoginPage = () => {
 
                 {currState === "Sign Up" && isDataSubmitted && (
                     <textarea 
+                    value={bio}
                         onChange={(e) => setBio(e.target.value)}
                         rows={4} 
                         className="p-2 border border-gray-500 rounded-md transition-all duration-200 ease-in-out
@@ -112,17 +130,3 @@ const LoginPage = () => {
 export default LoginPage
 
 
-{/* <div className="login-container">
-    <h2>Log in with</h2>
-    <div className="flex gap-2 justify-between">
-        <button className="w-32 flex items-center border border-gray-500 px-4 py-1">
-            <img src="/google.svg" alt="google logo" className="w-12" />
-            Google
-        </button>
-        <button className="w-32 flex items-center border border-gray-500 px-4 py-1">
-            <img src="/apple.svg" alt="google logo" className="w-13"/>
-            Apple
-        </button>
-    </div>
-    
-</div> */}
